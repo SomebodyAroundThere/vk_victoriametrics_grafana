@@ -31,12 +31,12 @@ terraform apply -var-file="secret.tfvars"
 ### 4. Настройка
 
 Далее устанавливаем из бинарных файлов victoriametrics, следуем инструкции на официальном сайте (https://docs.victoriametrics.com/victoriametrics/quick-start/ ), прописываем в файле сервиса путь до файла в котором прописывается сбор метрик.
-Содержимое scrape.yaml:
-scrape_configs:
-- job_name: node-exporter
-  static_configs:
-  - targets:
-    - localhost:9100
+Содержимое scrape.yaml:\
+scrape_configs:\
+- job_name: node-exporter\
+  static_configs:\
+  - targets:\
+    - localhost:9100\
 Устанавливаем Grafana и node-exporter по инструкции(https://arenda-server.cloud/blog/monitoring-bez-oblaka-s-victoriametrics-grafana-ljogkaja-alternativa/).
 Добавляем в grafana data source - prometheus, работающий на http://localhost:8428 (victoriametrics), на его основе создаем dashboard.
 
